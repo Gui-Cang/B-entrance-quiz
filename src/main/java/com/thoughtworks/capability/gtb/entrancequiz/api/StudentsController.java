@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
 public class StudentsController {
-    private List<Student> students = initStudents();
+    private List<Student> studentList = initStudents();
 
     private List<Student> initStudents() {
         List<Student> studentsList = new ArrayList<>();
@@ -35,13 +36,14 @@ public class StudentsController {
 
     @GetMapping
     public List<Student> getStudentsList() {
-        return students;
+        Collections.shuffle(studentList);
+        return studentList;
     }
 
     @PostMapping
     public List<Student> addStudent(@RequestBody Student student) {
-        students.add(new Student(student.getName(), student.getNumber()));
-        return students;
+        studentList.add(new Student(student.getName(), student.getNumber()));
+        return studentList;
     }
 
 }
