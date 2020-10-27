@@ -34,13 +34,13 @@ public class StudentsController {
         return studentsList;
     }
 
-    @GetMapping
+    @GetMapping("/students")
     public List<Student> getStudentsList() {
         Collections.shuffle(studentList);
         return studentList;
     }
 
-    @PostMapping
+    @PostMapping("/students/add")
     public List<Student> addStudent(@RequestBody Student student) {
         studentList.add(new Student(student.getName(), student.getNumber()));
         return studentList;
