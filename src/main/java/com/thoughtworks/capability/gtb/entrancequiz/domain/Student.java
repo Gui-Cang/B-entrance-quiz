@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.domain;
 
 public class Student {
     private String name;
+    //TODO GTB-工程实践: - 通常叫 id
     private int number;
 
     public Student(String nameOfStudent, int numberOfStudent) {

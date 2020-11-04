@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//TODO GTB-完成度: - 只实现了查询学员和创建学员的 API
+//TODO GTB-综合: * 整体实现很少，不能给出更多有效 comments
 @RestController
 public class StudentsController {
+    //TODO GTB-工程实践: - 没有提取 service
     private List<Student> studentList = initStudents();
 
     private List<Student> initStudents() {
@@ -42,6 +45,7 @@ public class StudentsController {
 
     @PostMapping("/students/add")
     public List<Student> addStudent(@RequestBody Student student) {
+        //TODO GTB-完成度: - 学员 id 不应由前端（客户端）决定
         studentList.add(new Student(student.getName(), student.getNumber()));
         return studentList;
     }
